@@ -10,6 +10,7 @@
     <modules>
         <module>time-server</module>
         <module>time-client</module>
+        <module>echo-server</module>
     </modules>
 
     <properties>

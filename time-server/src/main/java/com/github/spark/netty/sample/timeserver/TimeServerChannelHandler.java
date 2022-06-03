@@ -16,19 +16,20 @@ public class TimeServerChannelHandler extends ChannelInboundHandlerAdapter {
 
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
-        ByteBuf byteBuf = (ByteBuf) msg;
-
-        byte [] req = new byte[byteBuf.readableBytes()];
-        byteBuf.readBytes(req);
-
-        String body = new String(req,"UTF-8");
+//        ByteBuf byteBuf = (ByteBuf) msg;
+//
+//        byte [] req = new byte[byteBuf.readableBytes()];
+//        byteBuf.readBytes(req);
+//
+//        String body = new String(req,"UTF-8");
+        String body = (String) msg;
         log.info("Receive msg as :{}",body);
 
         String result = null;
         if (body.equals("GETTIME")) {
-            result = format.format(new Date());
+            result = format.format(new Date()) + "\n";
         } else {
-            result = "BAD REQUEST";
+            result = "BAD REQUEST" + "\n";
         }
 
         ByteBuf resp = Unpooled.copiedBuffer(result.getBytes());

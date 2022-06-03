@@ -21,10 +21,12 @@ public class TimeClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
-        ByteBuf byteBuf = (ByteBuf) msg;
-        byte[] req = new byte[byteBuf.readableBytes()];
-        byteBuf.readBytes(req);
-        String body = new String(req,"UTF-8");
+//        ByteBuf byteBuf = (ByteBuf) msg;
+//        byte[] req = new byte[byteBuf.readableBytes()];
+//        byteBuf.readBytes(req);
+//        String body = new String(req,"UTF-8");
+
+        String body = (String) msg;
         log.info("Now is " + body);
     }
 
